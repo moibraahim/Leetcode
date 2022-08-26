@@ -7,8 +7,15 @@ public:
        {
            return false;
        }
-        
-        return floor(log2(n)) == ceil(log2(n))?true:false;
+        if(floor(log2(n)) == ceil(log2(n)))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    
       
         
     }
