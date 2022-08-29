@@ -9,6 +9,9 @@ public:
         {
             return 1;
         }
-        return fib(n-1) + fib(n-2);
+        int first = fib(n-1);
+        int second = fib(n-2);
+        return first + second;
+       
     }
 };
