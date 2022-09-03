@@ -18,9 +18,8 @@ public:
             return;
         }
         
-         temp.push_back(nums[i]);
         helper(i+1,nums, temp);
-        temp.pop_back();
+        temp.push_back(nums[i]);
         helper(i+1, nums, temp);
         
     }
