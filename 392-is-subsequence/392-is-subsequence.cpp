@@ -1,6 +1,7 @@
 class Solution {
 public:
     bool isSubsequence(string s, string t) {
+        // if there is vector of sterings
         int s_size = s.length();
         int t_size = t.length();
         if (s == t)
