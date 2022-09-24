@@ -1,42 +1,38 @@
 class Solution {
 public:
+    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+        vector <int> temp;
+        vector<vector<int>> result;
+        int sum = 0;
+        Helper(0, candidates, target, sum, temp, result);
+        return result;
+        
+        
+        
+    }
     
     
-    vector<vector<int>> result;
-
-    void Helper(int i, vector<int>& canidates, vector<int>& temp, int target)
+    void Helper(int i, vector<int>& cani, int target, int sum, vector<int>& temp, vector<vector<int>>& result)
     {
-        if (i >= canidates.size())
+        if (sum == target)
         {
-            if (target == 0)
-            {
-                result.push_back(temp);
-            }
+            result.push_back(temp);
             return;
         }
-
-        if (canidates[i] <= target)
+        if (i >= cani.size() || sum > target )
         {
-            temp.push_back(canidates[i]);
-            Helper(i, canidates, temp, target - canidates[i]);
-            temp.pop_back();
+            return;
         }
-
-
-        Helper(i + 1, canidates, temp, target);
         
-
-
-
+        
+        // Keep Taking Element
+        temp.push_back(cani[i]);
+        sum += cani[i];
+        Helper(i,cani,target,sum,temp,result);
+        
+        // Remove and Move to Next Element
+        temp.pop_back();
+        sum -= cani[i];
+        Helper(i+1,cani,target,sum,temp,result);
     }
-    
-    
-    vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        vector<int> temp;
-        Helper(0, candidates, temp, target);
-        return result;
-
-
-    }
-
 };
