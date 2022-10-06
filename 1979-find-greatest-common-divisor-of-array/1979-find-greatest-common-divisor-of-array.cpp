@@ -1,17 +1,28 @@
 class Solution {
-    public:
-        int gcd(int a, int b) {
-            if (b == 0) return a;
-            return gcd(b, a % b);
+public:
+    int findGCD(vector<int>& nums) {
+        int min = *min_element(nums.begin(), nums.end());
+        int max = *max_element(nums.begin(), nums.end());
+        
+        return Helper(max,min);
+        
+        
+        
+        
+        
+        
+    }
+    
+     int Helper(int a, int b)
+    {
+        if (b == 0)
+        {
+            return a;
         }
-        int findGCD(vector<int> &nums) {
-            int min = 1001;
-            int max = 0;
-            // Find the min and max from array
-            for (int e : nums) {
-                if (e < min) min = e;
-                if (e > max) max = e;
-            }
-            return gcd(min, max);
-        }
+        
+        return Helper(b, a % b);
+    }
+    
+    
+    
 };
